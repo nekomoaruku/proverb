@@ -1,32 +1,47 @@
-//
-//  I3TopViewController.m
-//  proverb
-//
-//  Created by Manabu Iwata on 6/5/14.
-//
-//
-
 #import "I3TopViewController.h"
+#import "I3ThinkKotobaLogoView.h"
+
+
+
+
+#import "I3LetsThinkLogoView.h"
+#import "I3FooterView.h"
 
 @interface I3TopViewController ()
+
+@property I3ThinkKotobaLogoView *thinkKotobaLogo;
+
+
+
+@property I3LetsThinkLogoView *letsThinkLogo;
+@property I3FooterView *footerView;
 
 @end
 
 @implementation I3TopViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    CGRect rect;
+    rect = CGRectMake(0, 0, 200, 100);
+    
+    self.thinkKotobaLogo = [[I3ThinkKotobaLogoView alloc] initWithFrame:rect];
+    [self.thinkKotobaLogo sizeToFit];
+    self.thinkKotobaLogo.center = CGPointMake(self.view.frame.size.width * 0.5,
+                                              self.view.frame.size.height * 0.16);
+    [self.view addSubview:self.thinkKotobaLogo];
+    
+    self.letsThinkLogo = [[I3LetsThinkLogoView alloc] initWithFrame:rect];
+    [self.letsThinkLogo sizeToFit];
+    self.letsThinkLogo.center = CGPointMake(self.view.frame.size.width * 0.5,
+                                            self.view.frame.size.height * 0.48);
+    [self.view addSubview:self.letsThinkLogo];
+    
+    self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
+    [self.view addSubview:self.footerView];
 }
 
 - (void)didReceiveMemoryWarning

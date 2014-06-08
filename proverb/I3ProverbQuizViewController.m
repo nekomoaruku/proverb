@@ -1,11 +1,3 @@
-//
-//  I3ProverbQuizViewController.m
-//  proverb
-//
-//  Created by Manabu Iwata on 6/7/14.
-//
-//
-
 #import "I3ProverbQuizViewController.h"
 
 @interface I3ProverbQuizViewController ()

@@ -1,21 +1,29 @@
-//
-//  I3AppDelegate.m
-//  proverb
-//
-//  Created by Manabu Iwata on 6/3/14.
-//
-//
-
 #import "I3AppDelegate.h"
+#import "I3TopViewController.h"
+
+@interface I3AppDelegate ()
+
+@property UINavigationController *navController;
+@property I3TopViewController *topViewController;
+
+@end
+
 
 @implementation I3AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Override point for customization after application launch.
+    self.topViewController = [[I3TopViewController alloc] init];
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.topViewController];
+    self.navController.navigationBarHidden = YES;
+    
+    [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

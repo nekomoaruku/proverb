@@ -35,6 +35,7 @@
     [self.view addSubview:self.letsThinkLogo];
     
     self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
+    // infoボタンを押した時に、_pushProverbQuizViewControllerメソッドが呼ばれるように設定
     [self.footerView.infoButton addTarget:self
                                    action:@selector(_pushProverbQuizViewController)
                          forControlEvents:UIControlEventTouchDown];
@@ -44,6 +45,7 @@
 
 - (void)_pushProverbQuizViewController
 {
+    // I3ProverbQuizViewControllerをnavigationControllerに追加して表示する
     I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }

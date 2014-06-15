@@ -38,7 +38,7 @@
     
     
     // proverbQuizManageからデータを受け取ったタイミングで、
-    // 各subViewに値が設定されるように、設定しておく
+    // 各subViewに値が設定されるようにしておく
     I3ProverbQuizManager *manager = [I3ProverbQuizManager sharedManager];
     [manager getQuizFromServerWithBlock:^(NSDictionary *quizData) {
         [self _setViewDataWithQuizData:quizData];
@@ -67,7 +67,7 @@
 - (UIImageView *)_createExampleImageView
 {
     // 画像のサイズは固定、位置は可変という前提で、
-    // 固定のサイズについてはinitで設定してしまう。位置は適当に0を入れておく。
+    // 固定のサイズについてはinitで設定してしまう。位置には適当に0を入れておく。
     CGRect rect = CGRectMake(0, 0, 250, 250);
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
     return imageView;
@@ -82,7 +82,7 @@
     
     
     // 選択肢ラベルの設定
-    // まず、quizDataからchicesを取得する。
+    // まず、quizDataからchoicesを取得する。
     // 取得したchoicesをfor文で回して、文字列を作っている。
     // 今回は単純に、改行とカンマ区切りでつなげるている。
     NSMutableString *choicesString = [NSMutableString stringWithString:@""];
@@ -112,7 +112,8 @@
 
 - (void)layoutSubviews
 {
-    // ここで頑張る
+    // サンプルなので適当な数字を設定している
+    // 実際はどんなデータでも適切な位置に表示できるように頑張る必要がある。
     CGRect rect;
     
     rect = self.proverbLabel.frame;

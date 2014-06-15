@@ -1,6 +1,9 @@
 #import "I3ProverbQuizViewController.h"
+#import "I3ProverbQuizView.h"
 
 @interface I3ProverbQuizViewController ()
+
+@property I3ProverbQuizView* proverbQuizView;
 
 @end
 
@@ -11,6 +14,9 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        CGRect rect = CGRectMake(0, 50, 320, 500);
+        self.proverbQuizView = [[I3ProverbQuizView alloc] initWithFrame:rect];
+        [self.view addSubview:self.proverbQuizView];
     }
     return self;
 }

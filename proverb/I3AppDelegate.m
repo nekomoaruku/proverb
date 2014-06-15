@@ -1,6 +1,8 @@
 #import "I3AppDelegate.h"
 #import "I3TopViewController.h"
 
+#import "I3ProverbQuizManager.h"
+
 @interface I3AppDelegate ()
 
 @property UINavigationController *navController;
@@ -20,6 +22,19 @@
     self.topViewController = [[I3TopViewController alloc] init];
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.topViewController];
     self.navController.navigationBarHidden = YES;
+    
+    I3ProverbQuizManager *quizManager = [I3ProverbQuizManager sharedManager];
+    [quizManager getQuizFromServerWithBlock:^(NSDictionary *data) {
+        
+        NSLog(@"%@", data[@"id"]);
+        
+        
+        
+        
+        
+        
+        
+    }];
     
     [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];

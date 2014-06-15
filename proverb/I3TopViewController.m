@@ -1,18 +1,12 @@
 #import "I3TopViewController.h"
+#import "I3ProverbQuizViewController.h"
 #import "I3ThinkKotobaLogoView.h"
-
-
-
-
 #import "I3LetsThinkLogoView.h"
 #import "I3FooterView.h"
 
 @interface I3TopViewController ()
 
 @property I3ThinkKotobaLogoView *thinkKotobaLogo;
-
-
-
 @property I3LetsThinkLogoView *letsThinkLogo;
 @property I3FooterView *footerView;
 
@@ -41,8 +35,19 @@
     [self.view addSubview:self.letsThinkLogo];
     
     self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
+    [self.footerView.infoButton addTarget:self
+                                   action:@selector(_pushProverbQuizViewController)
+                         forControlEvents:UIControlEventTouchDown];
+     
     [self.view addSubview:self.footerView];
 }
+
+- (void)_pushProverbQuizViewController
+{
+    I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

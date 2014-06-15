@@ -3,7 +3,6 @@
 @interface I3FooterView ()
 
 @property UIImageView *wavyLine;
-@property UIButton *infoButton;
 
 @end
 

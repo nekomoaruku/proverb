@@ -15,7 +15,7 @@
     if (self) {
         self.letsThinkLabel = [self _createLetsThinkLabel];
         [self addSubview:self.letsThinkLabel];
-        self.balloon = [self _createBallon];
+        self.balloon = [self _createBalloon];
         [self addSubview:self.balloon];
     }
     return self;
@@ -54,7 +54,7 @@
     return label;
 }
 
-- (UIImageView *)_createBallon
+- (UIImageView *)_createBalloon
 {
     UIImage *balloon = [UIImage imageNamed:@"balloon.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:balloon];

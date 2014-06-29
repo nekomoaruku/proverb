@@ -1,7 +1,6 @@
 #import "I3AppDelegate.h"
-#import "I3TopViewController.h"
-
 #import "I3ProverbQuizManager.h"
+#import "I3TopViewController.h"
 
 @interface I3AppDelegate ()
 
@@ -23,21 +22,15 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.topViewController];
     self.navController.navigationBarHidden = YES;
     
-    I3ProverbQuizManager *quizManager = [I3ProverbQuizManager sharedManager];
-    [quizManager getQuizFromServerWithBlock:^(NSDictionary *data) {
+    [[I3ProverbQuizManager sharedManager] openDatabase];
+    [[I3ProverbQuizManager sharedManager] _getQuizzesFromServerWithBlock:^(NSDictionary *data) {
         
-        NSLog(@"%@", data[@"id"]);
-        
-        
-        
-        
-        
-        
-        
+        NSLog(@"%@",[[I3ProverbQuizManager sharedManager] getUnfinishedQuiz].number);
     }];
     
     [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];
+    
     
     return YES;
 }
@@ -46,6 +39,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [[I3ProverbQuizManager sharedManager] closeDatabase];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -57,6 +51,7 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    [[I3ProverbQuizManager sharedManager] openDatabase];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -67,6 +62,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[I3ProverbQuizManager sharedManager] closeDatabase];
 }
 
 @end

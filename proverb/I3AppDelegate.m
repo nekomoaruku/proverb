@@ -22,11 +22,11 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.topViewController];
     self.navController.navigationBarHidden = YES;
     
+    // DBを開く
     [[I3ProverbQuizManager sharedManager] openDatabase];
-    [[I3ProverbQuizManager sharedManager] _getQuizzesFromServerWithBlock:^(NSDictionary *data) {
-        
-        NSLog(@"%@",[[I3ProverbQuizManager sharedManager] getUnfinishedQuiz].number);
-    }];
+    
+    // status barを白くする
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];

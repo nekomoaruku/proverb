@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>99232F8A-1658-40C8-A506-5124869B0A89</string>
+	<key>IDESourceControlProjectName</key>
+	<string>proverb</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>07E27F50-A62F-45CB-8A30-D0D96661906F</key>
+		<string>https://github.com/nekomoaruku/proverb.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>proverb.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>07E27F50-A62F-45CB-8A30-D0D96661906F</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/nekomoaruku/proverb.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>07E27F50-A62F-45CB-8A30-D0D96661906F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>07E27F50-A62F-45CB-8A30-D0D96661906F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>proverb</string>
+		</dict>
+	</array>
+</dict>
+</plist>

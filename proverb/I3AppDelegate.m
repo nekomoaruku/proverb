@@ -9,7 +9,6 @@
 
 @end
 
-
 @implementation I3AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

@@ -119,7 +119,7 @@ static const float I3FotterHeight = 60.0f;
                             parentView.frame.size.height - I3FotterHeight,
                             parentView.frame.size.width,
                             I3FotterHeight);
-   
+    
     rect = self.frame;
     rect = self.wavyLine.frame;
     self.wavyLine.frame = CGRectMake(0, 0,

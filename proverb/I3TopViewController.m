@@ -1,5 +1,6 @@
 #import "I3TopViewController.h"
 #import "I3ProverbQuizViewController.h"
+#import "I3ProverbAnswerViewController.h"
 #import "I3ThinkKotobaLogoView.h"
 #import "I3LetsThinkLogoView.h"
 #import "I3FooterView.h"
@@ -36,20 +37,31 @@
     
     self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
     // infoボタンを押した時に、_pushProverbQuizViewControllerメソッドが呼ばれるように設定
+    //_pushProverbAnswerViewControllerメソッドに変更
     [self.footerView.infoButton addTarget:self
-                                   action:@selector(_pushProverbQuizViewController)
+                                   action:@selector(_pushProverbAnswerViewController)
                          forControlEvents:UIControlEventTouchDown];
      
     [self.view addSubview:self.footerView];
 }
 
-- (void)_pushProverbQuizViewController
+//viewの遷移を変えるため、一旦コメントアウト
+/*
+ - (void)_pushProverbQuizViewController
 {
     // I3ProverbQuizViewControllerをnavigationControllerに追加して表示する
     I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
+*/
+ 
+- (void)_pushProverbAnswerViewController
+{
+    // I3ProverbAnswerViewControllerをnavigationControllerに追加して表示する
+    I3ProverbAnswerViewController *viewController = [[I3ProverbAnswerViewController alloc] init];
+    viewController.userChoiceIndex = 2;
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 - (void)didReceiveMemoryWarning
 {

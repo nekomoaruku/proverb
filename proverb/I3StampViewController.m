@@ -52,7 +52,7 @@
                                                          numberOfStamp:20
                                                         numberOfColumn:4
                                                              stampSize:stampSize
-                                                        answerdQuizzes:@[@1, @10, @13, @7, @19]];
+                                                     answerdQuizzes:@[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@19,@20]];
         self.stampCardView.center = CGPointMake(self.view.frame.size.width * 0.5,
                                                 self.view.frame.size.height * 0.6);
         self.stampCardView.delegate = self;
@@ -61,7 +61,7 @@
         // フッターの初期化
         self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
         self.footerView.delegate = self;
-        self.footerView.leftButtonTitle = @"戻る";
+        self.footerView.centerButtonTitle = @"トップに戻る";
         [self.footerView setInfoButtonVisibility:false];
         [self.view addSubview:self.footerView];
         
@@ -88,24 +88,9 @@
 }
 
 #pragma mark - footer view delegate method
-- (void)footerViewLeftButtonTouched:(I3FooterView *)footerView
+- (void)footerViewCenterButtonTouched:(I3FooterView *)footerView
 {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
-- (void)footerViewInfoButtonTouched:(I3FooterView *)footerView
-{
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

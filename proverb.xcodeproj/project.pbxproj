@@ -25,10 +25,21 @@
 		3E08EB5E19422BE300FA9C6D /* I3LetsThinkLogoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB5D19422BE300FA9C6D /* I3LetsThinkLogoView.m */; };
 		3E08EB621942B05D00FA9C6D /* wavyLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E08EB611942B05D00FA9C6D /* wavyLine@2x.png */; };
 		3E08EB671942B16D00FA9C6D /* I3FooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB661942B16D00FA9C6D /* I3FooterView.m */; };
-		3E08EB6D1942ED2800FA9C6D /* I3ProverbQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB6C1942ED2800FA9C6D /* I3ProverbQuizViewController.m */; };
-		3E08EB701942ED4200FA9C6D /* I3ProverbQuizView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB6F1942ED4200FA9C6D /* I3ProverbQuizView.m */; };
 		3E08EB741945246500FA9C6D /* I3ProverbQuizManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB731945246500FA9C6D /* I3ProverbQuizManager.m */; };
 		3E817C261951C64800FD39F4 /* I3ProverbQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E817C251951C64800FD39F4 /* I3ProverbQuiz.m */; };
+		3E889472196C5DF2002E5121 /* I3ProverbAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889471196C5DF2002E5121 /* I3ProverbAnswerView.m */; };
+		3E889475196C5DFA002E5121 /* I3ProverbAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889474196C5DFA002E5121 /* I3ProverbAnswerViewController.m */; };
+		3E889478196C5E13002E5121 /* I3ProverbView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889477196C5E13002E5121 /* I3ProverbView.m */; };
+		3E88947B196C62B3002E5121 /* logIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E889479196C62B3002E5121 /* logIcon@2x.png */; };
+		3E88947C196C62B3002E5121 /* newIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E88947A196C62B3002E5121 /* newIcon@2x.png */; };
+		3E88947E196C6357002E5121 /* walker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E88947D196C6357002E5121 /* walker@2x.png */; };
+		3E889481196C65EB002E5121 /* I3TopMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889480196C65EB002E5121 /* I3TopMenuButton.m */; };
+		3E889484196C74D6002E5121 /* I3ChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889482196C74D6002E5121 /* I3ChoiceView.m */; };
+		3E889487196C74E8002E5121 /* I3NumberBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889485196C74E8002E5121 /* I3NumberBalloonView.m */; };
+		3E88948A196C751F002E5121 /* I3ProverbQuizView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E889488196C751F002E5121 /* I3ProverbQuizView.m */; };
+		3E88948D196C7540002E5121 /* I3ProverbQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E88948B196C7540002E5121 /* I3ProverbQuizViewController.m */; };
+		3E88948F196C7566002E5121 /* checkMark.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E88948E196C7566002E5121 /* checkMark.png */; };
+		3E889491196C757E002E5121 /* NumberBalloon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E889490196C757E002E5121 /* NumberBalloon.png */; };
 		3EE4E3B51968D0AC00A49829 /* I3StampViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4E3B41968D0AC00A49829 /* I3StampViewController.m */; };
 		3EE4E3B81968D22D00A49829 /* I3StampButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4E3B71968D22D00A49829 /* I3StampButton.m */; };
 		3EE4E3C1196900B200A49829 /* balloonA@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EE4E3BF196900B200A49829 /* balloonA@2x.png */; };
@@ -75,14 +86,31 @@
 		3E08EB611942B05D00FA9C6D /* wavyLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wavyLine@2x.png"; sourceTree = "<group>"; };
 		3E08EB651942B16D00FA9C6D /* I3FooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3FooterView.h; sourceTree = "<group>"; };
 		3E08EB661942B16D00FA9C6D /* I3FooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3FooterView.m; sourceTree = "<group>"; };
-		3E08EB6B1942ED2800FA9C6D /* I3ProverbQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuizViewController.h; sourceTree = "<group>"; };
-		3E08EB6C1942ED2800FA9C6D /* I3ProverbQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuizViewController.m; sourceTree = "<group>"; };
-		3E08EB6E1942ED4200FA9C6D /* I3ProverbQuizView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuizView.h; sourceTree = "<group>"; };
-		3E08EB6F1942ED4200FA9C6D /* I3ProverbQuizView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuizView.m; sourceTree = "<group>"; };
 		3E08EB721945246500FA9C6D /* I3ProverbQuizManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuizManager.h; sourceTree = "<group>"; };
 		3E08EB731945246500FA9C6D /* I3ProverbQuizManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuizManager.m; sourceTree = "<group>"; };
 		3E817C241951C64800FD39F4 /* I3ProverbQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuiz.h; sourceTree = "<group>"; };
 		3E817C251951C64800FD39F4 /* I3ProverbQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuiz.m; sourceTree = "<group>"; };
+		3E889470196C5DF2002E5121 /* I3ProverbAnswerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbAnswerView.h; sourceTree = "<group>"; };
+		3E889471196C5DF2002E5121 /* I3ProverbAnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbAnswerView.m; sourceTree = "<group>"; };
+		3E889473196C5DFA002E5121 /* I3ProverbAnswerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbAnswerViewController.h; sourceTree = "<group>"; };
+		3E889474196C5DFA002E5121 /* I3ProverbAnswerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbAnswerViewController.m; sourceTree = "<group>"; };
+		3E889476196C5E13002E5121 /* I3ProverbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbView.h; sourceTree = "<group>"; };
+		3E889477196C5E13002E5121 /* I3ProverbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbView.m; sourceTree = "<group>"; };
+		3E889479196C62B3002E5121 /* logIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logIcon@2x.png"; sourceTree = "<group>"; };
+		3E88947A196C62B3002E5121 /* newIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newIcon@2x.png"; sourceTree = "<group>"; };
+		3E88947D196C6357002E5121 /* walker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walker@2x.png"; sourceTree = "<group>"; };
+		3E88947F196C65EB002E5121 /* I3TopMenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3TopMenuButton.h; sourceTree = "<group>"; };
+		3E889480196C65EB002E5121 /* I3TopMenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3TopMenuButton.m; sourceTree = "<group>"; };
+		3E889482196C74D6002E5121 /* I3ChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ChoiceView.m; sourceTree = "<group>"; };
+		3E889483196C74D6002E5121 /* I3ChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ChoiceView.h; sourceTree = "<group>"; };
+		3E889485196C74E8002E5121 /* I3NumberBalloonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3NumberBalloonView.m; sourceTree = "<group>"; };
+		3E889486196C74E8002E5121 /* I3NumberBalloonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3NumberBalloonView.h; sourceTree = "<group>"; };
+		3E889488196C751F002E5121 /* I3ProverbQuizView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuizView.m; sourceTree = "<group>"; };
+		3E889489196C751F002E5121 /* I3ProverbQuizView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuizView.h; sourceTree = "<group>"; };
+		3E88948B196C7540002E5121 /* I3ProverbQuizViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuizViewController.m; sourceTree = "<group>"; };
+		3E88948C196C7540002E5121 /* I3ProverbQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuizViewController.h; sourceTree = "<group>"; };
+		3E88948E196C7566002E5121 /* checkMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkMark.png; sourceTree = "<group>"; };
+		3E889490196C757E002E5121 /* NumberBalloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumberBalloon.png; sourceTree = "<group>"; };
 		3EE4E3B31968D0AC00A49829 /* I3StampViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3StampViewController.h; sourceTree = "<group>"; };
 		3EE4E3B41968D0AC00A49829 /* I3StampViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3StampViewController.m; sourceTree = "<group>"; };
 		3EE4E3B61968D22D00A49829 /* I3StampButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3StampButton.h; sourceTree = "<group>"; };
@@ -208,10 +236,12 @@
 		3E08EB501940A62900FA9C6D /* viewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				3E88948C196C7540002E5121 /* I3ProverbQuizViewController.h */,
+				3E88948B196C7540002E5121 /* I3ProverbQuizViewController.m */,
+				3E889473196C5DFA002E5121 /* I3ProverbAnswerViewController.h */,
+				3E889474196C5DFA002E5121 /* I3ProverbAnswerViewController.m */,
 				3E08EB511940A75600FA9C6D /* I3TopViewController.h */,
 				3E08EB521940A75600FA9C6D /* I3TopViewController.m */,
-				3E08EB6B1942ED2800FA9C6D /* I3ProverbQuizViewController.h */,
-				3E08EB6C1942ED2800FA9C6D /* I3ProverbQuizViewController.m */,
 				3EE4E3B31968D0AC00A49829 /* I3StampViewController.h */,
 				3EE4E3B41968D0AC00A49829 /* I3StampViewController.m */,
 			);
@@ -221,18 +251,28 @@
 		3E08EB54194223EF00FA9C6D /* views */ = {
 			isa = PBXGroup;
 			children = (
+				3E889488196C751F002E5121 /* I3ProverbQuizView.m */,
+				3E889489196C751F002E5121 /* I3ProverbQuizView.h */,
+				3E889485196C74E8002E5121 /* I3NumberBalloonView.m */,
+				3E889486196C74E8002E5121 /* I3NumberBalloonView.h */,
+				3E889482196C74D6002E5121 /* I3ChoiceView.m */,
+				3E889483196C74D6002E5121 /* I3ChoiceView.h */,
+				3E889476196C5E13002E5121 /* I3ProverbView.h */,
+				3E889477196C5E13002E5121 /* I3ProverbView.m */,
+				3E889470196C5DF2002E5121 /* I3ProverbAnswerView.h */,
+				3E889471196C5DF2002E5121 /* I3ProverbAnswerView.m */,
 				3E08EB561942246700FA9C6D /* I3ThinkKotobaLogoView.h */,
 				3E08EB571942246700FA9C6D /* I3ThinkKotobaLogoView.m */,
 				3E08EB5C19422BE300FA9C6D /* I3LetsThinkLogoView.h */,
 				3E08EB5D19422BE300FA9C6D /* I3LetsThinkLogoView.m */,
 				3E08EB651942B16D00FA9C6D /* I3FooterView.h */,
 				3E08EB661942B16D00FA9C6D /* I3FooterView.m */,
-				3E08EB6E1942ED4200FA9C6D /* I3ProverbQuizView.h */,
-				3E08EB6F1942ED4200FA9C6D /* I3ProverbQuizView.m */,
 				3EE4E3B61968D22D00A49829 /* I3StampButton.h */,
 				3EE4E3B71968D22D00A49829 /* I3StampButton.m */,
 				3EE4E3C31969029B00A49829 /* I3StampCardView.h */,
 				3EE4E3C41969029B00A49829 /* I3StampCardView.m */,
+				3E88947F196C65EB002E5121 /* I3TopMenuButton.h */,
+				3E889480196C65EB002E5121 /* I3TopMenuButton.m */,
 			);
 			name = views;
 			sourceTree = "<group>";
@@ -240,6 +280,11 @@
 		3E08EB5919422A4C00FA9C6D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3E889490196C757E002E5121 /* NumberBalloon.png */,
+				3E88948E196C7566002E5121 /* checkMark.png */,
+				3E88947D196C6357002E5121 /* walker@2x.png */,
+				3E889479196C62B3002E5121 /* logIcon@2x.png */,
+				3E88947A196C62B3002E5121 /* newIcon@2x.png */,
 				3EE4E3C8196935D800A49829 /* infoIcon@2x.png */,
 				3EE4E3C61969353300A49829 /* waveLine@2x.png */,
 				3EE4E3BF196900B200A49829 /* balloonA@2x.png */,
@@ -339,11 +384,16 @@
 			files = (
 				3EE4E3C1196900B200A49829 /* balloonA@2x.png in Resources */,
 				3EE4E3C2196900B200A49829 /* balloonB@2x.png in Resources */,
+				3E88947E196C6357002E5121 /* walker@2x.png in Resources */,
 				3EE4E3C9196935D800A49829 /* infoIcon@2x.png in Resources */,
 				3EE4E3C71969353300A49829 /* waveLine@2x.png in Resources */,
 				3E08EB2B193DFE2E00FA9C6D /* InfoPlist.strings in Resources */,
 				3E08EB33193DFE2E00FA9C6D /* Images.xcassets in Resources */,
+				3E88948F196C7566002E5121 /* checkMark.png in Resources */,
+				3E889491196C757E002E5121 /* NumberBalloon.png in Resources */,
+				3E88947B196C62B3002E5121 /* logIcon@2x.png in Resources */,
 				3E08EB621942B05D00FA9C6D /* wavyLine@2x.png in Resources */,
+				3E88947C196C62B3002E5121 /* newIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,19 +445,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E88948A196C751F002E5121 /* I3ProverbQuizView.m in Sources */,
 				3EE4E3B51968D0AC00A49829 /* I3StampViewController.m in Sources */,
+				3E889478196C5E13002E5121 /* I3ProverbView.m in Sources */,
 				3E08EB31193DFE2E00FA9C6D /* I3AppDelegate.m in Sources */,
 				3E08EB581942246700FA9C6D /* I3ThinkKotobaLogoView.m in Sources */,
-				3E08EB6D1942ED2800FA9C6D /* I3ProverbQuizViewController.m in Sources */,
+				3E889487196C74E8002E5121 /* I3NumberBalloonView.m in Sources */,
+				3E889475196C5DFA002E5121 /* I3ProverbAnswerViewController.m in Sources */,
 				3E817C261951C64800FD39F4 /* I3ProverbQuiz.m in Sources */,
 				3EE4E3C51969029B00A49829 /* I3StampCardView.m in Sources */,
+				3E88948D196C7540002E5121 /* I3ProverbQuizViewController.m in Sources */,
 				3E08EB741945246500FA9C6D /* I3ProverbQuizManager.m in Sources */,
 				3E08EB5E19422BE300FA9C6D /* I3LetsThinkLogoView.m in Sources */,
 				3E08EB2D193DFE2E00FA9C6D /* main.m in Sources */,
 				3E08EB531940A75600FA9C6D /* I3TopViewController.m in Sources */,
-				3E08EB701942ED4200FA9C6D /* I3ProverbQuizView.m in Sources */,
+				3E889484196C74D6002E5121 /* I3ChoiceView.m in Sources */,
 				3E08EB671942B16D00FA9C6D /* I3FooterView.m in Sources */,
 				3EE4E3B81968D22D00A49829 /* I3StampButton.m in Sources */,
+				3E889481196C65EB002E5121 /* I3TopMenuButton.m in Sources */,
+				3E889472196C5DF2002E5121 /* I3ProverbAnswerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

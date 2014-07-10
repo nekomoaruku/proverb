@@ -1,18 +1,14 @@
 #import "I3TopViewController.h"
 #import "I3ProverbQuizViewController.h"
-#import "I3ThinkKotobaLogoView.h"
-#import "I3LetsThinkLogoView.h"
-#import "I3FooterView.h"
-
-// test
-#import "I3StampButton.h"
-#import "I3StampCardView.h"
 #import "I3StampViewController.h"
+#import "I3TopMenuButton.h"
+#import "I3FooterView.h"
 
 @interface I3TopViewController ()
 
-@property I3ThinkKotobaLogoView *thinkKotobaLogo;
-@property I3LetsThinkLogoView *letsThinkLogo;
+@property UIButton *goTodayQuizButton;
+@property UIButton *goStampCardButton;
+@property UIImageView *walkerImageView;
 @property I3FooterView *footerView;
 
 @end
@@ -24,77 +20,93 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    CGRect rect;
-    rect = CGRectMake(0, 0, 200, 100);
+    // 今日のクイズボタンを初期化
+    UIImage *newIconImage = [UIImage imageNamed:@"newIcon"];
+    self.goTodayQuizButton = [[I3TopMenuButton alloc] initWithFrame:CGRectZero
+                                                              title:@"今日の名言クイズ"
+                                                          iconImage:newIconImage];
+    [self.goTodayQuizButton addTarget:self action:@selector(pushProverbViewController:)
+                     forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.goTodayQuizButton];
     
-    self.thinkKotobaLogo = [[I3ThinkKotobaLogoView alloc] initWithFrame:rect];
-    [self.thinkKotobaLogo sizeToFit];
-    self.thinkKotobaLogo.center = CGPointMake(self.view.frame.size.width * 0.5,
-                                              self.view.frame.size.height * 0.16);
-    [self.view addSubview:self.thinkKotobaLogo];
+    // 名言スタンプ帳を初期化
+    UIImage *logIconImage = [UIImage imageNamed:@"logIcon"];
+    self.goStampCardButton = [[I3TopMenuButton alloc] initWithFrame:CGRectZero
+                                                              title:@"名言スタンプ帳を見る"
+                                                          iconImage:logIconImage];
+    [self.goStampCardButton addTarget:self action:@selector(pushStampCardViewConttroller:)
+                     forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.goStampCardButton];
     
-    self.letsThinkLogo = [[I3LetsThinkLogoView alloc] initWithFrame:rect];
-    [self.letsThinkLogo sizeToFit];
-    self.letsThinkLogo.center = CGPointMake(self.view.frame.size.width * 0.5,
-                                            self.view.frame.size.height * 0.48);
-    [self.view addSubview:self.letsThinkLogo];
+    // 歩いている人の画像を初期化
+    UIImage *walkerImage = [UIImage imageNamed:@"walker"];
+    self.walkerImageView = [[UIImageView alloc] initWithImage:walkerImage];
+    [self.walkerImageView sizeToFit];
+    [self.view addSubview:self.walkerImageView];
     
+    // フッターの初期化
     self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
     self.footerView.delegate = self;
-    // infoボタンを押した時に、_pushProverbQuizViewControllerメソッドが呼ばれるように設定
-    self.footerView.centerButtonTitle = @"スタンプ帳へ";
-    
-    self.view.backgroundColor = [UIColor colorWithRed:75.0f/255.0f green:188.0f/255.0f blue:218.0f/255.0f alpha:1];
     [self.view addSubview:self.footerView];
     
+    self.view.backgroundColor = [UIColor colorWithRed:75.0f/255.0f green:188.0f/255.0f blue:218.0f/255.0f alpha:1];
+    
+    [self _layoutViews];
 }
 
+- (void)_layoutViews
+{
+    CGRect rect;
+    
+    // 今日のクイズボタン
+    [self.goTodayQuizButton sizeToFit];
+    rect = self.goTodayQuizButton.frame;
+    // I3TopMenuButton内でsizeToFitをオーバーライドしても呼ばれなかったので、
+    // とりあえずここでwidth+10して表示されるようにする
+    rect = CGRectMake(34, 184, rect.size.width + 10, rect.size.height);
+    self.goTodayQuizButton.frame = rect;
+    
+    // 名言スタンプ帳
+    [self.goStampCardButton sizeToFit];
+    rect = self.goStampCardButton.frame;
+    rect = CGRectMake(34, 256, rect.size.width + 10, rect.size.height);
+    self.goStampCardButton.frame = rect;
+    
+    // 歩いている人
+    self.walkerImageView.center = CGPointMake(self.view.frame.size.width / 2,
+                                              468);
+    
+    // フッター
+    // フッターは初期化時にうまく表示されるように処理してくれているので、
+    // ここでは特に何もしなくて大丈夫
+}
+
+- (void)pushProverbViewController:(id)sender
+{
+    NSLog(@"Hello Proverb View Controller!");
+    I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)pushStampCardViewConttroller:(id)sender
+{
+    I3StampViewController *viewController = [[I3StampViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
 
 - (void)footerViewLeftButtonTouched:(I3FooterView *)footerView
 {
     NSLog(@"Left Button touched");
 }
 
-- (void)footerViewCenterButtonTouched:(I3FooterView *)footerView
-{
-    I3StampViewController *viewController = [[I3StampViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
 - (void)footerViewInfoButtonTouched:(I3FooterView *)footerView
 {
 }
-
-- (void)_pushProverbQuizViewController
-{
-//    // I3ProverbQuizViewControllerをnavigationControllerに追加して表示する
-//    I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
-//    [self.navigationController pushViewController:viewController animated:YES];
-    I3StampViewController *viewController = [[I3StampViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)stampCardView:(I3StampCardView *)stampCardView didStampPressed:(int)stampNumber;
-{
-    NSLog(@"%i", stampNumber);
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

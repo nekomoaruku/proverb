@@ -60,13 +60,14 @@ static NSString* const DB_FILE = @"I3Proverb.db";
 - (void)_createDatabaseWithDbPath:(NSString *)dbPath
 {
     NSString *createProverbQuizTable =
-        @"CREATE TABLE proverb_quiz (id TEXT NOT NULL, sheet INTEGER NOT NULL, "
-            "number INTEGER NOT NULL, dataJson TEXT NOT NULL, completionDate INTEGER)";
+        @"CREATE TABLE proverb_quiz (id TEXT PRIMARY KEY, sheet INTEGER NOT NULL, "
+            "number INTEGER NOT NULL, dataJson TEXT NOT NULL, "
+            "startDate REAL, completionDate REAL)";
     [self.db open];
     [self.db executeUpdate:createProverbQuizTable];
 }
 
-- (void)_getQuizzesFromServerWithBlock:(void (^)(NSDictionary *quizDictionary))block
+- (void)updateQuizzesWithBlock:(void (^)(void))block
 {
     // リクエスト用のAPIを作成
     NSString *requestUrl =
@@ -80,50 +81,34 @@ static NSString* const DB_FILE = @"I3Proverb.db";
                     
                     // 通信に成功した場合の処理
                     for (NSDictionary *quizData in responseObject) {
-                        I3ProverbQuiz *quiz = [[I3ProverbQuiz alloc] initWithQuizData:quizData];
-                        [self insertNewProverbQuiz:quiz];
+                        I3ProverbQuiz *quiz = [[I3ProverbQuiz alloc] initWithQuizDataJson:quizData[@
+                                               "dataJson"]];
+                        [self insertOrReplaceProverbQuiz:quiz];
                     }
                     
-                    block((NSDictionary *)responseObject);
+                    block();
                 } failure:^(NSURLSessionDataTask *task, NSError *error) {
                     // エラーの場合はエラーの内容をコンソールに出力する
                     NSLog(@"Error: %@", error);
                 }];
 }
 
-- (void)insertNewProverbQuiz:(I3ProverbQuiz *)proverbQuiz;
+- (void)insertOrReplaceProverbQuiz:(I3ProverbQuiz *)proverbQuiz;
 {
     NSString *insertProverbQuizSql =
-        @"INSERT INTO proverb_quiz values (?, ?, ?, ?, ?)";
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:proverbQuiz.dataDictionary
-                                                       options:NSJSONWritingPrettyPrinted
-                                                         error:&error];
-    NSString *dataJson = [[NSString alloc] initWithData:jsonData
-                                               encoding:NSUTF8StringEncoding];
+        @"INSERT OR REPLACE INTO proverb_quiz values (?, ?, ?, ?, ?, ?)";
     [self.db executeUpdate:insertProverbQuizSql, proverbQuiz.id, proverbQuiz.sheet,
-        proverbQuiz.number, dataJson, proverbQuiz.completionDate];
+        proverbQuiz.number, proverbQuiz.dataJson, proverbQuiz.startDate, proverbQuiz.completionDate];
 }
 
-- (I3ProverbQuiz *)getUnfinishedQuiz
+- (I3ProverbQuiz *)getTodayQuiz
 {
     NSString *selectUnfinishedQuizzesSql =
         @"SELECT * FROM proverb_quiz WHERE completionDate IS NULL";
     FMResultSet *rs = [self.db executeQuery:selectUnfinishedQuizzesSql];
     NSMutableArray *quizzes = [NSMutableArray array];
     while ([rs next]) {
-        I3ProverbQuiz *quiz = [[I3ProverbQuiz alloc] init];
-        quiz.id = [rs stringForColumnIndex:0];
-        quiz.sheet = [NSNumber numberWithInt:[rs intForColumnIndex:1]];
-        quiz.number = [NSNumber numberWithInt:[rs intForColumnIndex:2]];
-        NSData *jsonData = [[rs stringForColumnIndex:3] dataUsingEncoding:NSUTF8StringEncoding];
-        NSError *error;
-        NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                                       options:NSJSONReadingAllowFragments
-                                                                         error:&error];
-        quiz.dataDictionary = dataDictionary;
-        quiz.completionDate = nil;
-    
+        I3ProverbQuiz *quiz = [[I3ProverbQuiz alloc] initWithQuizDataJson:[rs stringForColumn:@"dataJson"] startDate:[rs dateForColumn:@"startDate"] completionDate:[rs dateForColumn:@"completionDate"]];
         [quizzes addObject:quiz];
     }
     

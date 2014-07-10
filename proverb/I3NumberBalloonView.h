@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface I3ProverbQuizView : UIView {}
+@interface I3NumberBalloonView : UIView{}
 - (void)setViewDataWithQuizData:(NSDictionary *)quizData;
 
 @end

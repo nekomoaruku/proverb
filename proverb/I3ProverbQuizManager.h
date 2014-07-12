@@ -6,9 +6,8 @@
 + (I3ProverbQuizManager *)sharedManager;
 - (BOOL)openDatabase;
 - (BOOL)closeDatabase;
+- (void)updateQuizzesWithBlock:(void (^)(void))block;
 - (void)getQuizFromServerWithBlock:(void (^)(NSDictionary *quizDictionary))block;
-- (void)_getQuizzesFromServerWithBlock:(void (^)(NSDictionary *quizDictionary))block;
-- (void)insertNewProverbQuiz:(I3ProverbQuiz *)proverbQuiz;
-- (I3ProverbQuiz *)getUnfinishedQuiz;
+- (I3ProverbQuiz *)getTodayQuiz;
 
 @end

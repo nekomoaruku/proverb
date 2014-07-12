@@ -5,9 +5,12 @@
 @property NSString *id;
 @property NSNumber *sheet;
 @property NSNumber *number;
+@property NSString *dataJson;
 @property NSDictionary *dataDictionary;
+@property NSDate *startDate;
 @property NSDate *completionDate;
 
-- (id)initWithQuizData:(NSDictionary *)quizData;
+- (id)initWithQuizDataJson:(NSDictionary *)quizData;
+- (id)initWithQuizDataJson:(NSString *)dataJson startDate:(NSDate *)startDate completionDate:(NSDate *)completionDate;
 
 @end

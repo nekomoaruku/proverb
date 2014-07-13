@@ -36,16 +36,16 @@
 		3EE4E3C51969029B00A49829 /* I3StampCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4E3C41969029B00A49829 /* I3StampCardView.m */; };
 		3EE4E3C71969353300A49829 /* waveLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EE4E3C61969353300A49829 /* waveLine@2x.png */; };
 		3EE4E3C9196935D800A49829 /* infoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EE4E3C8196935D800A49829 /* infoIcon@2x.png */; };
+		6C13F0101972046A001B6D1D /* checkMark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C13F00E1972046A001B6D1D /* checkMark@2x.png */; };
+		6C13F0111972046A001B6D1D /* numberCloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C13F00F1972046A001B6D1D /* numberCloud@2x.png */; };
 		E6C6B221197168FE001E622F /* I3ChoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C6B220197168FE001E622F /* I3ChoiceView.m */; };
 		E6C6B2241971690C001E622F /* I3NumberBalloonView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C6B2231971690C001E622F /* I3NumberBalloonView.m */; };
 		E6C6B22719716919001E622F /* I3ProverbAnswerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C6B22619716919001E622F /* I3ProverbAnswerViewController.m */; };
 		E6C6B22A19716964001E622F /* I3TopMenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C6B22919716964001E622F /* I3TopMenuButton.m */; };
 		E6C6B22D19716987001E622F /* I3ProverbAnswerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C6B22C19716987001E622F /* I3ProverbAnswerView.m */; };
 		E6C6B23019716993001E622F /* I3ProverbView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C6B22F19716993001E622F /* I3ProverbView.m */; };
-		E6C6B23219716A1E001E622F /* checkMark.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C6B23119716A1E001E622F /* checkMark.png */; };
 		E6C6B23419716AB8001E622F /* logIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C6B23319716AB8001E622F /* logIcon@2x.png */; };
 		E6C6B23719716AC7001E622F /* newIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C6B23519716AC7001E622F /* newIcon@2x.png */; };
-		E6C6B23819716AC7001E622F /* NumberBalloon.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C6B23619716AC7001E622F /* NumberBalloon.png */; };
 		E6C6B23A19716AD9001E622F /* walker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E6C6B23919716AD9001E622F /* walker@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +104,8 @@
 		3EE4E3C41969029B00A49829 /* I3StampCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3StampCardView.m; sourceTree = "<group>"; };
 		3EE4E3C61969353300A49829 /* waveLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "waveLine@2x.png"; sourceTree = "<group>"; };
 		3EE4E3C8196935D800A49829 /* infoIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infoIcon@2x.png"; sourceTree = "<group>"; };
+		6C13F00E1972046A001B6D1D /* checkMark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkMark@2x.png"; sourceTree = "<group>"; };
+		6C13F00F1972046A001B6D1D /* numberCloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "numberCloud@2x.png"; sourceTree = "<group>"; };
 		B9876E2360484115A5822A88 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E6C6B21F197168FE001E622F /* I3ChoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ChoiceView.h; sourceTree = "<group>"; };
 		E6C6B220197168FE001E622F /* I3ChoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ChoiceView.m; sourceTree = "<group>"; };
@@ -117,10 +119,8 @@
 		E6C6B22C19716987001E622F /* I3ProverbAnswerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbAnswerView.m; sourceTree = "<group>"; };
 		E6C6B22E19716993001E622F /* I3ProverbView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbView.h; sourceTree = "<group>"; };
 		E6C6B22F19716993001E622F /* I3ProverbView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbView.m; sourceTree = "<group>"; };
-		E6C6B23119716A1E001E622F /* checkMark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkMark.png; sourceTree = "<group>"; };
 		E6C6B23319716AB8001E622F /* logIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logIcon@2x.png"; sourceTree = "<group>"; };
 		E6C6B23519716AC7001E622F /* newIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "newIcon@2x.png"; sourceTree = "<group>"; };
-		E6C6B23619716AC7001E622F /* NumberBalloon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NumberBalloon.png; sourceTree = "<group>"; };
 		E6C6B23919716AD9001E622F /* walker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "walker@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -282,12 +282,12 @@
 			children = (
 				3EE4E3C8196935D800A49829 /* infoIcon@2x.png */,
 				3EE4E3C61969353300A49829 /* waveLine@2x.png */,
-				E6C6B23119716A1E001E622F /* checkMark.png */,
+				6C13F00E1972046A001B6D1D /* checkMark@2x.png */,
+				6C13F00F1972046A001B6D1D /* numberCloud@2x.png */,
 				3EE4E3BF196900B200A49829 /* balloonA@2x.png */,
 				E6C6B23319716AB8001E622F /* logIcon@2x.png */,
 				E6C6B23519716AC7001E622F /* newIcon@2x.png */,
 				E6C6B23919716AD9001E622F /* walker@2x.png */,
-				E6C6B23619716AC7001E622F /* NumberBalloon.png */,
 				3EE4E3C0196900B200A49829 /* balloonB@2x.png */,
 				3E08EB611942B05D00FA9C6D /* wavyLine@2x.png */,
 			);
@@ -384,10 +384,10 @@
 			files = (
 				E6C6B23A19716AD9001E622F /* walker@2x.png in Resources */,
 				3EE4E3C1196900B200A49829 /* balloonA@2x.png in Resources */,
-				E6C6B23819716AC7001E622F /* NumberBalloon.png in Resources */,
-				E6C6B23219716A1E001E622F /* checkMark.png in Resources */,
+				6C13F0111972046A001B6D1D /* numberCloud@2x.png in Resources */,
 				E6C6B23719716AC7001E622F /* newIcon@2x.png in Resources */,
 				3EE4E3C2196900B200A49829 /* balloonB@2x.png in Resources */,
+				6C13F0101972046A001B6D1D /* checkMark@2x.png in Resources */,
 				E6C6B23419716AB8001E622F /* logIcon@2x.png in Resources */,
 				3EE4E3C9196935D800A49829 /* infoIcon@2x.png in Resources */,
 				3EE4E3C71969353300A49829 /* waveLine@2x.png in Resources */,

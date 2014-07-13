@@ -37,7 +37,7 @@
         CGRect screen = [[UIScreen mainScreen] applicationFrame];
         
         self.numberBalloonView = [[I3NumberBalloonView alloc] initWithFrame:CGRectZero];
-        self.numberBalloonView.center = CGPointMake(screen.size.width*0.5f, screen.size.height*0.10f);
+        self.numberBalloonView.center = CGPointMake(screen.size.width*0.5f, screen.size.height*0.12f);
         [self.view addSubview:self.numberBalloonView];
         
         CGRect rect = CGRectMake(0, screen.size.height*0.062+41.0f,
@@ -96,7 +96,7 @@
                       [NSNumber numberWithFloat:width3],
                       [NSNumber numberWithFloat:width4], nil];
     
-    float maxLabelWidth = [[array valueForKeyPath:@"@max.self"] floatValue];
+    float maxLabelWidth = [[array valueForKeyPath:@"@max.self"] floatValue] + 10.0f;
     
     [self.choiceOneView resizeLabelWithLabelWidth:maxLabelWidth];
     [self.choiceTwoView resizeLabelWithLabelWidth:maxLabelWidth];
@@ -136,6 +136,7 @@
             [self.choiceTwoView cancelTheTouch];
             [self.choiceThreeView cancelTheTouch];
             [self.choiceFourView cancelTheTouch];
+            self.footerView.centerButtonTitle = @"決定";
             break;
             
         case 2:
@@ -143,6 +144,7 @@
             [self.choiceTwoView respondToTouch];
             [self.choiceThreeView cancelTheTouch];
             [self.choiceFourView cancelTheTouch];
+            self.footerView.centerButtonTitle = @"決定";
             break;
             
         case 3:
@@ -150,6 +152,7 @@
             [self.choiceTwoView cancelTheTouch];
             [self.choiceThreeView respondToTouch];
             [self.choiceFourView cancelTheTouch];
+            self.footerView.centerButtonTitle = @"決定";
             break;
             
         case 4:
@@ -157,10 +160,10 @@
             [self.choiceTwoView cancelTheTouch];
             [self.choiceThreeView cancelTheTouch];
             [self.choiceFourView respondToTouch];
+            self.footerView.centerButtonTitle = @"決定";
             break;
     }
     self.userChoiceIndex = touch.view.tag - 1;
-    self.footerView.centerButtonTitle = @"決定";
 }
 
 - (void)footerViewLeftButtonTouched:(I3FooterView *)footerView

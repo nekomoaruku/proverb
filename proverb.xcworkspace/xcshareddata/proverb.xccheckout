@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>99232F8A-1658-40C8-A506-5124869B0A89</string>
+	<string>E26D294A-74E9-4627-9067-4F717A74E2F3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>proverb</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>07E27F50-A62F-45CB-8A30-D0D96661906F</key>
-		<string>https://github.com/nekomoaruku/proverb.git</string>
+		<key>527CCB6F-74CF-451A-A45B-DBBBE4840546</key>
+		<string>https://github.com/nekomoaruku/proverb</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>proverb.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>07E27F50-A62F-45CB-8A30-D0D96661906F</key>
+		<key>527CCB6F-74CF-451A-A45B-DBBBE4840546</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/nekomoaruku/proverb.git</string>
+	<string>https://github.com/nekomoaruku/proverb</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>07E27F50-A62F-45CB-8A30-D0D96661906F</string>
+	<string>527CCB6F-74CF-451A-A45B-DBBBE4840546</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>07E27F50-A62F-45CB-8A30-D0D96661906F</string>
+			<string>527CCB6F-74CF-451A-A45B-DBBBE4840546</string>
 			<key>IDESourceControlWCCName</key>
 			<string>proverb</string>
 		</dict>

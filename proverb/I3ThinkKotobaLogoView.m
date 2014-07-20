@@ -19,16 +19,6 @@
     return self;
 }
 
-//- (id)initWithFrame:(CGRect)frame quizInfo:(NSDictionary *)quizInfo
-//{
-//    
-//}
-//
-//- (id)initWithFrame:(CGRect)frame quizInfo:(NSDictionary *)quizInfo userChoiceIndex:(int)index
-//{
-//    
-//}
-
 - (UILabel *)_createLogoLabel
 {
     UILabel *label = [[UILabel alloc] init];

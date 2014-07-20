@@ -7,6 +7,7 @@
 @property (weak) id delegate;
 
 - (void)setInfoButtonVisibility:(bool)visible;
+- (void)setCloseButtonVisibility:(bool)visible;
 
 @end
 
@@ -15,5 +16,6 @@
 - (void)footerViewLeftButtonTouched:(I3FooterView *)footerView;
 - (void)footerViewCenterButtonTouched:(I3FooterView *)footerView;
 - (void)footerViewInfoButtonTouched:(I3FooterView *)footerView;
+- (void)footerViewCloseButtonTouched:(I3FooterView *)footerView;
 
 @end

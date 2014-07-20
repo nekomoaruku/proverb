@@ -29,6 +29,8 @@
 		3E08EB701942ED4200FA9C6D /* I3ProverbQuizView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB6F1942ED4200FA9C6D /* I3ProverbQuizView.m */; };
 		3E08EB741945246500FA9C6D /* I3ProverbQuizManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E08EB731945246500FA9C6D /* I3ProverbQuizManager.m */; };
 		3E817C261951C64800FD39F4 /* I3ProverbQuiz.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E817C251951C64800FD39F4 /* I3ProverbQuiz.m */; };
+		3ED82292197C04A200838058 /* I3HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED82291197C04A200838058 /* I3HelpViewController.m */; };
+		3ED82296197C123900838058 /* closeIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3ED82295197C123900838058 /* closeIcon@2x.png */; };
 		3EE4E3B51968D0AC00A49829 /* I3StampViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4E3B41968D0AC00A49829 /* I3StampViewController.m */; };
 		3EE4E3B81968D22D00A49829 /* I3StampButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4E3B71968D22D00A49829 /* I3StampButton.m */; };
 		3EE4E3C1196900B200A49829 /* balloonA@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3EE4E3BF196900B200A49829 /* balloonA@2x.png */; };
@@ -94,6 +96,9 @@
 		3E08EB731945246500FA9C6D /* I3ProverbQuizManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuizManager.m; sourceTree = "<group>"; };
 		3E817C241951C64800FD39F4 /* I3ProverbQuiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3ProverbQuiz.h; sourceTree = "<group>"; };
 		3E817C251951C64800FD39F4 /* I3ProverbQuiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3ProverbQuiz.m; sourceTree = "<group>"; };
+		3ED82290197C04A200838058 /* I3HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3HelpViewController.h; sourceTree = "<group>"; };
+		3ED82291197C04A200838058 /* I3HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3HelpViewController.m; sourceTree = "<group>"; };
+		3ED82295197C123900838058 /* closeIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeIcon@2x.png"; sourceTree = "<group>"; };
 		3EE4E3B31968D0AC00A49829 /* I3StampViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3StampViewController.h; sourceTree = "<group>"; };
 		3EE4E3B41968D0AC00A49829 /* I3StampViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = I3StampViewController.m; sourceTree = "<group>"; };
 		3EE4E3B61968D22D00A49829 /* I3StampButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = I3StampButton.h; sourceTree = "<group>"; };
@@ -244,6 +249,8 @@
 				E6C6B22619716919001E622F /* I3ProverbAnswerViewController.m */,
 				3EE4E3B31968D0AC00A49829 /* I3StampViewController.h */,
 				3EE4E3B41968D0AC00A49829 /* I3StampViewController.m */,
+				3ED82290197C04A200838058 /* I3HelpViewController.h */,
+				3ED82291197C04A200838058 /* I3HelpViewController.m */,
 			);
 			name = viewControllers;
 			sourceTree = "<group>";
@@ -258,11 +265,11 @@
 				E6C6B22B19716987001E622F /* I3ProverbAnswerView.h */,
 				E6C6B22C19716987001E622F /* I3ProverbAnswerView.m */,
 				3E08EB561942246700FA9C6D /* I3ThinkKotobaLogoView.h */,
+				3E08EB571942246700FA9C6D /* I3ThinkKotobaLogoView.m */,
 				E6C6B22E19716993001E622F /* I3ProverbView.h */,
 				E6C6B22F19716993001E622F /* I3ProverbView.m */,
 				E6C6B22819716964001E622F /* I3TopMenuButton.h */,
 				E6C6B22919716964001E622F /* I3TopMenuButton.m */,
-				3E08EB571942246700FA9C6D /* I3ThinkKotobaLogoView.m */,
 				3E08EB5C19422BE300FA9C6D /* I3LetsThinkLogoView.h */,
 				3E08EB5D19422BE300FA9C6D /* I3LetsThinkLogoView.m */,
 				3E08EB651942B16D00FA9C6D /* I3FooterView.h */,
@@ -280,6 +287,7 @@
 		3E08EB5919422A4C00FA9C6D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				3ED82295197C123900838058 /* closeIcon@2x.png */,
 				3EE4E3C8196935D800A49829 /* infoIcon@2x.png */,
 				3EE4E3C61969353300A49829 /* waveLine@2x.png */,
 				6C13F00E1972046A001B6D1D /* checkMark@2x.png */,
@@ -384,6 +392,7 @@
 			files = (
 				E6C6B23A19716AD9001E622F /* walker@2x.png in Resources */,
 				3EE4E3C1196900B200A49829 /* balloonA@2x.png in Resources */,
+				3ED82296197C123900838058 /* closeIcon@2x.png in Resources */,
 				6C13F0111972046A001B6D1D /* numberCloud@2x.png in Resources */,
 				E6C6B23719716AC7001E622F /* newIcon@2x.png in Resources */,
 				3EE4E3C2196900B200A49829 /* balloonB@2x.png in Resources */,
@@ -454,6 +463,7 @@
 				E6C6B22719716919001E622F /* I3ProverbAnswerViewController.m in Sources */,
 				3EE4E3C51969029B00A49829 /* I3StampCardView.m in Sources */,
 				3E08EB741945246500FA9C6D /* I3ProverbQuizManager.m in Sources */,
+				3ED82292197C04A200838058 /* I3HelpViewController.m in Sources */,
 				3E08EB5E19422BE300FA9C6D /* I3LetsThinkLogoView.m in Sources */,
 				3E08EB2D193DFE2E00FA9C6D /* main.m in Sources */,
 				E6C6B221197168FE001E622F /* I3ChoiceView.m in Sources */,

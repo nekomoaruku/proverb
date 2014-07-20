@@ -4,6 +4,7 @@
 
 @property UIImageView *wavyLine;
 @property UIButton *infoButton;
+@property UIButton *closeButton;
 @property UIButton *leftButton;
 @property UIButton *centerButton;
 
@@ -20,10 +21,12 @@ static const float I3FotterHeight = 60.0f;
     if (self) {
         self.wavyLine = [self _createWavyLine];
         self.infoButton = [self _createInfoButton];
+        self.closeButton = [self _createCloseButton];
         self.centerButton = [self _createCenterButton];
         self.leftButton = [self _createLeftButton];
         [self addSubview:self.wavyLine];
         [self addSubview:self.infoButton];
+        [self addSubview:self.closeButton];
         [self addSubview:self.centerButton];
         [self addSubview:self.leftButton];
     }
@@ -47,6 +50,19 @@ static const float I3FotterHeight = 60.0f;
     [button addTarget:self action:@selector(_footerButtonTouched:)
         forControlEvents:UIControlEventTouchUpInside];
     [button sizeToFit];
+    return button;
+}
+
+- (UIButton *)_createCloseButton
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *infoIcon = [UIImage imageNamed:@"closeIcon"];
+    [button setImage:infoIcon forState:UIControlStateNormal];
+    button.tag = 3;
+    [button addTarget:self action:@selector(_footerButtonTouched:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button sizeToFit];
+    button.hidden = YES;
     return button;
 }
 
@@ -84,6 +100,9 @@ static const float I3FotterHeight = 60.0f;
         case 2:
             [self.delegate footerViewInfoButtonTouched:self];
             break;
+        case 3:
+            [self.delegate footerViewCloseButtonTouched:self];
+            break;
         default:
             break;
     }
@@ -108,6 +127,11 @@ static const float I3FotterHeight = 60.0f;
     self.infoButton.hidden = !visible;
 }
 
+- (void)setCloseButtonVisibility:(bool)visible
+{
+    self.closeButton.hidden = !visible;
+}
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -126,6 +150,9 @@ static const float I3FotterHeight = 60.0f;
                                      parentView.frame.size.width, rect.size.height);
     rect = self.infoButton.frame;
     self.infoButton.frame = CGRectMake(parentView.frame.size.width - 38.0f, 18.0f,
+                                       rect.size.width, rect.size.height);
+    rect = self.closeButton.frame;
+    self.closeButton.frame = CGRectMake(parentView.frame.size.width - 38.0f, 18.0f,
                                        rect.size.width, rect.size.height);
     rect = self.leftButton.frame;
     self.leftButton.frame = CGRectMake(12.0f, 18.0f,

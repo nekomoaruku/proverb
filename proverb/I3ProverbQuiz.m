@@ -29,6 +29,7 @@
         self.dataDictionary = dataDictionary;
         self.startDate = startDate;
         self.completionDate = completionDate;
+        self.isTestMode = [dataDictionary[@"isTestMode"] boolValue];
     }
     return self;
     

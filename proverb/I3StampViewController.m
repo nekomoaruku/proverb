@@ -1,6 +1,9 @@
 #import "I3StampViewController.h"
 #import "I3StampCardView.h"
 #import "I3FooterView.h"
+#import "I3ProverbQuizManager.h"
+#import "I3ProverbQuiz.h"
+#import "I3ProverbAnswerViewController.h"
 
 @interface I3StampViewController ()
 
@@ -48,11 +51,12 @@
         // スタンプカードの初期化
         rect = CGRectMake(0, 0, 240, 280);
         CGSize stampSize = CGSizeMake(50, 56);
+        NSArray *answeredQuizzes = [[I3ProverbQuizManager sharedManager] getAnsweredQuizNumbersWithSheet:1];
         self.stampCardView = [[I3StampCardView alloc] initWithFrame:rect
-                                                         numberOfStamp:20
-                                                        numberOfColumn:4
-                                                             stampSize:stampSize
-                                                     answerdQuizzes:@[@1,@2,@3,@4,@5,@6,@7,@8,@9,@10,@11,@12,@13,@14,@15,@16,@17,@19,@20]];
+                                                      numberOfStamp:20
+                                                     numberOfColumn:4
+                                                          stampSize:stampSize
+                                                     answerdQuizzes:answeredQuizzes];
         self.stampCardView.center = CGPointMake(self.view.frame.size.width * 0.5,
                                                 self.view.frame.size.height * 0.6);
         self.stampCardView.delegate = self;
@@ -84,6 +88,10 @@
 #pragma mark - stamp view delegate method
 - (void)stampCardView:(I3StampCardView *)stampCardView didStampPressed:(int)stampNumber;
 {
+    NSString *quizId = [NSString stringWithFormat:@"001%03d", stampNumber];
+    I3ProverbQuiz *quiz = [[I3ProverbQuizManager sharedManager] getQuizWithQuizId:quizId];
+    I3ProverbAnswerViewController *viewController = [[I3ProverbAnswerViewController alloc] initWithProverbQuiz:quiz];
+    [self.navigationController pushViewController:viewController animated:YES];
     NSLog(@"%i", stampNumber);
 }
 

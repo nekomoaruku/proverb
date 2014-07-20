@@ -1,5 +1,6 @@
 #import "I3AppDelegate.h"
 #import "I3ProverbQuizManager.h"
+#import "I3ProverbQuiz.h"
 #import "I3TopViewController.h"
 
 @interface I3AppDelegate ()
@@ -11,6 +12,9 @@
 
 @implementation I3AppDelegate
 
+static bool isDevelopMode = true;
+static NSString *testQuizId = @"001007";
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -21,19 +25,20 @@
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.topViewController];
     self.navController.navigationBarHidden = YES;
     
-    // DBを開いて、Quizをアップデートする
+    // DBを開く
     [[I3ProverbQuizManager sharedManager] openDatabase];
     [[I3ProverbQuizManager sharedManager] updateQuizzesWithBlock:^(void){
-        NSLog(@"Update Quiz Done");
+        if (isDevelopMode && testQuizId) {
+            [[I3ProverbQuizManager sharedManager] setTestQuizId:testQuizId];
+        }
     }];
     
-    
-    // status barを白くする
+    // statusbarを白くする
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
+    // windowを表示
     [self.window setRootViewController:self.navController];
     [self.window makeKeyAndVisible];
-    
     
     return YES;
 }

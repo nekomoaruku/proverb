@@ -11,7 +11,7 @@
 
 @implementation I3ProverbView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame proverbQuiz:(I3ProverbQuiz *)proverbQuiz
 {
     self = [super initWithFrame:frame];
     if (!self) {
@@ -22,8 +22,8 @@
     self.proverbLabel = [self _createProverbLabel];
     [self addSubview:self.proverbLabel];
     
-    I3ProverbQuiz *todayQuiz = [[I3ProverbQuizManager sharedManager] getTodayQuiz];
-    [self _setViewDataWithQuizData:todayQuiz.dataDictionary];
+//    I3ProverbQuiz *todayQuiz = [[I3ProverbQuizManager sharedManager] getTodayQuiz];
+    [self _setViewDataWithQuizData:proverbQuiz.dataDictionary];
     
     return self;
 }

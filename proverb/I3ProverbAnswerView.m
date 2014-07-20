@@ -1,10 +1,12 @@
 #import "I3ProverbAnswerView.h"
 #import "I3ProverbQuizManager.h"
 #import "I3ProverbQuiz.h"
+#import "I3NumberBalloonView.h"
 
 @interface I3ProverbAnswerView()
 
 @property UILabel *resultLabel;
+@property I3NumberBalloonView *numberBalloonView;
 @property UIImageView *commentImageView;
 @property UILabel *caseLabel;
 
@@ -15,12 +17,12 @@
 
 @implementation I3ProverbAnswerView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithFrame:(CGRect)frame proverbQuiz:(I3ProverbQuiz *)proverbQuiz
 {
-    return [self initWithFrame:frame userChoiceIndex:0];
+    return [self initWithFrame:frame proverbQuiz:proverbQuiz userChoiceIndex:-1];
 }
 
-- (id)initWithFrame:(CGRect)frame userChoiceIndex:(int)userChoiceIndex
+- (id)initWithFrame:(CGRect)frame proverbQuiz:(I3ProverbQuiz *)proverbQuiz userChoiceIndex:(int)userChoiceIndex
 {
     self = [super initWithFrame:frame];
     if (!self) {
@@ -31,7 +33,10 @@
     
     //各subViewの初期化を呼ぶ
     self.resultLabel = [self _createResultLabel];
-    [self addSubview:self.resultLabel];
+    if (userChoiceIndex != -1) [self addSubview:self.resultLabel];
+    
+    self.numberBalloonView = [self _createNumberBalloonView];
+    if (userChoiceIndex == -1) [self addSubview:self.numberBalloonView];
     
     self.commentImageView = [self _createCommentImageView];
     [self addSubview:self.commentImageView];
@@ -39,8 +44,8 @@
     self.caseLabel = [self _createCaseLabel];
     [self addSubview:self.caseLabel];
     
-    I3ProverbQuiz *todayQuiz = [[I3ProverbQuizManager sharedManager] getTodayQuiz];
-    [self _setViewDataWithQuizData:todayQuiz.dataDictionary];
+//    I3ProverbQuiz *todayQuiz = [[I3ProverbQuizManager sharedManager] getTodayQuiz];
+    [self _setViewDataWithQuizData:proverbQuiz.dataDictionary];
     
     return self;
 }
@@ -53,6 +58,15 @@
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     return label;
+}
+
+
+- (I3NumberBalloonView *)_createNumberBalloonView
+{
+    CGRect screen = [[UIScreen mainScreen] applicationFrame];
+    I3NumberBalloonView *balloonView = [[I3NumberBalloonView alloc] initWithFrame:CGRectZero];
+    balloonView.center = CGPointMake(screen.size.width*0.5f, screen.size.height*0.12f);
+    return balloonView;
 }
 
 - (UIImageView *)_createCommentImageView
@@ -69,7 +83,7 @@
     [layer setBorderWidth:2.f];
     [layer setBorderColor:[[UIColor whiteColor] CGColor]];
     layer.cornerRadius = 5;
-        return imageView;
+    return imageView;
 }
 
 - (UILabel *)_createCaseLabel
@@ -87,13 +101,15 @@
     //正否ラベルの設定
     //quizDataからrightChoiceIndexを取り、
     //ユーザーの回答と照らし合わせて正否を入れる
-
     NSNumber *rightChoiceIndex = quizData[@"rightChoiceIndex"];
     if (self.userChoiceIndex == [rightChoiceIndex intValue]){
         self.resultLabel.text = @"正解！";
     }else {
         self.resultLabel.text = @"残念！正解は…";
     }
+    
+    //風船数字のやつ
+    [self.numberBalloonView setViewDataWithQuizData:quizData];
     
     //事例用の画像の設定
     NSURL *imageUrl = [NSURL URLWithString:quizData[@"exampleImageUrl"]];

@@ -1,10 +1,7 @@
 #import "I3ProverbQuizViewController.h"
-
 #import "I3ProverbQuizManager.h"
 #import "I3ProverbQuiz.h"
-
 #import "I3ProverbAnswerViewController.h"
-
 #import "I3NumberBalloonView.h"
 #import "I3ProverbQuizView.h"
 #import "I3ChoiceView.h"
@@ -20,6 +17,7 @@
 @property I3ChoiceView *choiceFourView;
 @property I3FooterView *footerView;
 
+@property I3ProverbQuiz *proverbQuiz;
 @property int userChoiceIndex;
 
 @end
@@ -38,7 +36,9 @@
         
         self.numberBalloonView = [[I3NumberBalloonView alloc] initWithFrame:CGRectZero];
         self.numberBalloonView.center = CGPointMake(screen.size.width*0.5f, screen.size.height*0.12f);
+        self.numberBalloonView.hidden = YES;
         [self.view addSubview:self.numberBalloonView];
+        
         
         CGRect rect = CGRectMake(0, screen.size.height*0.062+41.0f,
                                  screen.size.width, screen.size.height*0.338-41.0f);
@@ -47,15 +47,19 @@
         
         self.choiceOneView = [[I3ChoiceView alloc] initWithFrame:CGRectZero];
         [self.view addSubview:self.choiceOneView];
+        self.choiceOneView.hidden = YES;
         
         self.choiceTwoView = [[I3ChoiceView alloc] initWithFrame:CGRectZero];
         [self.view addSubview:self.choiceTwoView];
+        self.choiceTwoView.hidden = YES;
         
         self.choiceThreeView = [[I3ChoiceView alloc] initWithFrame:CGRectZero];
         [self.view addSubview:self.choiceThreeView];
+        self.choiceThreeView.hidden = YES;
         
         self.choiceFourView = [[I3ChoiceView alloc] initWithFrame:CGRectZero];
         [self.view addSubview:self.choiceFourView];
+        self.choiceFourView.hidden = YES;
         
         self.footerView = [[I3FooterView alloc] initWithFrame:CGRectZero];
         self.footerView.delegate = self;
@@ -64,16 +68,26 @@
         [self.view addSubview:self.footerView];
         
         I3ProverbQuiz *quiz = [[I3ProverbQuizManager sharedManager] getTodayQuiz];
-        [self.numberBalloonView setViewDataWithQuizData:quiz.dataDictionary];
-        [self.proverbQuizView setViewDataWithQuizData:quiz.dataDictionary];
-        [self.choiceOneView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:1];
-        [self.choiceTwoView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:2];
-        [self.choiceThreeView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:3];
-        [self.choiceFourView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:4];
+        if (!quiz) {
+            [self _showNoQuizAlertView];
+        } else {
+            self.proverbQuiz = quiz;
+            [self.numberBalloonView setViewDataWithQuizData:quiz.dataDictionary];
+            [self.proverbQuizView setViewDataWithQuizData:quiz.dataDictionary];
+            [self.choiceOneView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:1];
+            [self.choiceTwoView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:2];
+            [self.choiceThreeView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:3];
+            [self.choiceFourView setViewDataWithQuizData:quiz.dataDictionary choiceNumber:4];
 
-        [self _resizeChoiceViews];
+            self.numberBalloonView.hidden = NO;
+            self.choiceOneView.hidden = NO;
+            self.choiceTwoView.hidden = NO;
+            self.choiceThreeView.hidden = NO;
+            self.choiceFourView.hidden = NO;
+            
+            [self _resizeChoiceViews];
+        }
     }
-
 
     return self;
 }
@@ -127,6 +141,16 @@
                                            viewHeight);
 }
 
+- (void)_showNoQuizAlertView
+{
+    UIAlertView *alertView =[[UIAlertView alloc]initWithTitle:@"クイズがありません！"
+                                                      message:@"ごめんなさい！クイズ切れです。\n中の人達が鋭意作成中です。よろしくお願い致します！"
+                                                     delegate:self
+                                            cancelButtonTitle:nil
+                                            otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UITouch *touch = [touches anyObject];
@@ -174,8 +198,14 @@
 - (void)footerViewCenterButtonTouched:(I3FooterView *)footerView
 {
     I3ProverbAnswerViewController *viewController =
-        [[I3ProverbAnswerViewController alloc] initWithUserChoiceIndex:self.userChoiceIndex];
+    [[I3ProverbAnswerViewController alloc] initWithProverbQuiz:self.proverbQuiz userChoiceIndex:self.userChoiceIndex];
+    [[I3ProverbQuizManager sharedManager] updateQuizWithId:self.proverbQuiz.id completionDate:[NSDate date]];
     [self.navigationController pushViewController:viewController animated:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

@@ -9,6 +9,7 @@
 @property NSDictionary *dataDictionary;
 @property NSDate *startDate;
 @property NSDate *completionDate;
+@property bool isTestMode;
 
 - (id)initWithQuizDataJson:(NSDictionary *)quizData;
 - (id)initWithQuizDataJson:(NSString *)dataJson startDate:(NSDate *)startDate completionDate:(NSDate *)completionDate;

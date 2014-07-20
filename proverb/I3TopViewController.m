@@ -1,8 +1,12 @@
 #import "I3TopViewController.h"
 #import "I3ProverbQuizViewController.h"
+#import "I3ProverbAnswerViewController.h"
 #import "I3StampViewController.h"
+#import "I3HelpViewController.h"
 #import "I3TopMenuButton.h"
 #import "I3FooterView.h"
+#import "I3ProverbQuizManager.h"
+#import "I3ProverbQuiz.h"
 
 @interface I3TopViewController ()
 
@@ -25,7 +29,7 @@
     self.goTodayQuizButton = [[I3TopMenuButton alloc] initWithFrame:CGRectZero
                                                               title:@"今日の名言クイズ"
                                                           iconImage:newIconImage];
-    [self.goTodayQuizButton addTarget:self action:@selector(pushProverbViewController:)
+    [self.goTodayQuizButton addTarget:self action:@selector(todayQuizButtonPushed:)
                      forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.goTodayQuizButton];
     
@@ -81,11 +85,24 @@
     // ここでは特に何もしなくて大丈夫
 }
 
-- (void)pushProverbViewController:(id)sender
+- (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"Hello Proverb View Controller!");
-    I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
+    [[I3ProverbQuizManager sharedManager] updateQuizzesWithBlock:^(void){
+        NSLog(@"Update Quiz Done");
+    }];
+}
+
+- (void)todayQuizButtonPushed:(id)sender
+{
+    I3ProverbQuiz *quiz = [[I3ProverbQuizManager sharedManager] getTodayQuiz];
+    if (quiz.completionDate) {
+        I3ProverbAnswerViewController *viewController =
+            [[I3ProverbAnswerViewController alloc] initWithProverbQuiz:quiz];
+        [self.navigationController pushViewController:viewController animated:YES];
+    } else {
+        I3ProverbQuizViewController *viewController = [[I3ProverbQuizViewController alloc] init];
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
 }
 
 - (void)pushStampCardViewConttroller:(id)sender
@@ -101,6 +118,8 @@
 
 - (void)footerViewInfoButtonTouched:(I3FooterView *)footerView
 {
+    I3HelpViewController *viewController = [[I3HelpViewController alloc] init];
+    [self presentViewController:viewController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
